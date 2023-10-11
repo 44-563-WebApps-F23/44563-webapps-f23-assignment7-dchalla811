@@ -12,8 +12,8 @@
 
   <style>
     body {
-      background-color: beige;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: peachpuff;
+      font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
     }
 
@@ -21,7 +21,7 @@
       text-align: center;
       margin-top: 30px;
       font-weight: bold;
-      color: darkred;
+      color: darkblue;
       text-shadow: 1px 1px 1px black;
     }
 
@@ -30,16 +30,14 @@
       margin: 10px;
       font-size: 16px;
       padding: 5px;
-      border: 1px solid black;
-      border-radius: 10px;
-      background-color: ivory;
+      
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Vaishnavi Varaganti speed check</h1>
+  <h1>Dhruvitha Challa speed check</h1>
   <br>
   <div id="target">Your time</div>
   <div id="counter">Count</div>
@@ -51,7 +49,24 @@
       reactTime = Date.now();
       console.log(reactTime);
     }
-    
+    function startTime() {
+      let countdown = Math.floor(Math.random() * 9) + 2
+      for (let i = 0; i < 9; i++) {
+        setTimeout(() => {
+          document.getElementById("counter").innerHTML = i;
+        }, (countdown - i) * 1000)
+      }
+      setTimeout(() => {
+        if (reactTime == undefined) {
+          document.getElementById("target").innerHTML = "Too Slow";
+        }
+        else {
+          let endTime = Date.now();
+          let elapsedTime = endTime - reactTime;
+          document.getElementById("target").innerHTML = "Time was " + elapsedTime;
+        }
+      }, 8000)
+    }
   </script>
 
 </body>
